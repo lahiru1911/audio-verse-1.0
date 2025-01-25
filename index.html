@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AudioVerse</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="app-container">
+    <header class="app-header">
+      <h1>AudioVerse</h1>
+    </header>
+    <nav class="tabs">
+      <button class="tab active" onclick="showTab('music-player')">Music Player</button>
+      <button class="tab" onclick="showTab('video-player')">Video Player</button>
+      <button class="tab" onclick="showTab('equalizer')">Equalizer</button>
+    </nav>
+
+    <!-- Music Player Tab -->
+    <div id="music-player" class="tab-content active">
+      <div class="player-controls">
+        <button onclick="previousTrack()">⏮️</button>
+        <button onclick="playPauseMusic()">⏯️</button>
+        <button onclick="nextTrack()">⏭️</button>
+        <button onclick="openMusicLibrary()">🎵 Open Library</button>
+      </div>
+      <div id="playlist-container"></div>
+    </div>
+
+    <!-- Video Player Tab -->
+    <div id="video-player" class="tab-content">
+      <video id="video-element" controls></video>
+      <div class="player-controls">
+        <button onclick="seekBackward()">⏪ 10s</button>
+        <button onclick="playPauseVideo()">⏯️</button>
+        <button onclick="seekForward()">⏩ 10s</button>
+        <button onclick="openVideoLibrary()">🎥 Open Video</button>
+      </div>
+    </div>
+
+    <!-- Equalizer Tab -->
+    <div id="equalizer" class="tab-content">
+      <h3>Equalizer</h3>
+      <label>Bass: <input id="bass" type="range" min="-10" max="10" value="0"></label>
+      <label>Mid: <input id="mid" type="range" min="-10" max="10" value="0"></label>
+      <label>Treble: <input id="treble" type="range" min="-10" max="10" value="0"></label>
+      <div class="equalizer-presets">
+        <button onclick="setEqualizer('bass')">Bass Boost</button>
+        <button onclick="setEqualizer('treble')">Treble Boost</button>
+        <button onclick="setEqualizer('vocal')">Vocal Boost</button>
+        <button onclick="setEqualizer('default')">Reset</button>
+      </div>
+    </div>
+  </div>
+  <script src="script.js"></script>
+</body>
+</html>
